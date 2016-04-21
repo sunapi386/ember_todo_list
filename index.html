@@ -19,21 +19,20 @@
 
             <section id="main">
                 <ul id="todo-list">
-                    <li class="completed">
-                        <input type="checkbox" class="toggle">
-                        <label>Item1 learn ember!!</label>
-                        <button class="destroy"></button>
-                    </li>
+                {{#each todo in model}}
+                {{!--
+
+                Ember.js has created a controller for us and set the controller's model property to our route's model.
+                The template loops over the controller's model property. Because we don't need custom behavior for this
+                controller yet, we can use the default object provided by the framework.
+
+                 --}}
                     <li>
                         <input type="checkbox" class="toggle">
-                        <label>Item2... !!</label>
+                        <label>{{todo.title}}</label>
                         <button class="destroy"></button>
                     </li>
-                    <li>
-                        <input type="checkbox" class="toggle">
-                        <label>Item 3</label>
-                        <button class="destroy"></button>
-                    </li>
+                {{/each}}
                 </ul>
                 <input type="checkbox" id="toggle-all">
             </section>
