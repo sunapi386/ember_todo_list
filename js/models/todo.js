@@ -8,5 +8,8 @@ Todos.Todo = DS.Model.extend({
 Todos.Todo.FIXTURES = [
 	{id: 1, isCompleted: true, title: 'Learn Ember.js'},
 	{id: 2, isCompleted: false, title: '...'},
-	{id: 3, isCompleted: false, title: '$$$!'},
+	{id: 3, isCompleted: true, title: '...'},
+	{id: 4, isCompleted: false, title: '...'},
+	{id: 5, isCompleted: false, title: '...'},
+	{id: 6, isCompleted: false, title: '$$$!'},
 ];

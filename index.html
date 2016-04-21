@@ -27,7 +27,7 @@
                 controller yet, we can use the default object provided by the framework.
 
                  --}}
-                    <li>
+                    <li {{bind-attr class="todo.isCompleted:completed"}}>
                         <input type="checkbox" class="toggle">
                         <label>{{todo.title}}</label>
                         <button class="destroy"></button>
