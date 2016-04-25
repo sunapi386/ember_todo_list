@@ -25,18 +25,16 @@ changes, the other will automatically update to remain synchronized.
 
             <section id="main">
                 <ul id="todo-list">
-                {{#each todo in model}}
+                {{#each todo in model itemController="todo"}}
                 {{!--
 
-                Ember.js has created a controller for us and set the controller's model property to our route's model.
-                The template loops over the controller's model property. Because we don't need custom behavior for this
+                Ember.js has created a controller for us and set the controller's model property to our route's model.  The template loops over the controller's model property. Because we don't need custom behavior for this
                 controller yet, we can use the default object provided by the framework.
 
                  --}}
                     <li {{bind-attr class="todo.isCompleted:completed"}}>
-                        <input type="checkbox" class="toggle">
-                        <label>{{todo.title}}</label>
-                        <button class="destroy"></button>
+                        {{input type="checkbox" checked=todo.isCompleted class="toggle"}}
+                        <label>{{todo.title}}</label><button class="destroy"></button>
                     </li>
                 {{/each}}
                 </ul>
@@ -71,6 +69,7 @@ changes, the other will automatically update to remain synchronized.
     <script src="js/router.js"></script>
     <script src="js/models/todo.js"></script>
     <script src="js/controllers/todos_controller.js"></script>
+    <script src="js/controllers/todo_controller.js"></script>
 
 </body>
 </html>
