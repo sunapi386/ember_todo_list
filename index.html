@@ -40,9 +40,15 @@
             <footer id="footer">
                 <span id="todo-count"><strong>{{remaining}}</strong> {{inflection}} remaining</span>
                 <ul id="filters">
-                    <li><a href="all" class="selected">All</a></li>
-                    <li><a href="all" class="selected">Active</a></li>
-                    <li><a href="all" class="selected">Completed</a></li>
+                    <li>
+                        <a href="all" class="selected">All</a>
+                    </li>
+                    <li>
+                        {{#link-to "todos.active" activeClass="selected"}}Active{{/link-to}}
+                    </li>
+                    <li>
+                        <a href="all" class="selected">Completed</a>
+                    </li>
                 </ul>
                 <button id="clear-completed">Clear completed (1)</button>
             </footer>
