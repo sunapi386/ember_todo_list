@@ -13,12 +13,6 @@
         <section id="todoapp">
             <header id="header">
                 <h1>todos</h1>
-{{!--
-This will render an <input> element at this location with the same id and
-placeholder attributes applied. It will also connect the newTitle property of
-this template's controller to the value attribute of the <input>. When one
-changes, the other will automatically update to remain synchronized.
- --}}
                  {{input type="text" id="new-todo" placeholder="New todo item?" value=newTitle action="createTodo"}}
             </header>
 
@@ -26,15 +20,13 @@ changes, the other will automatically update to remain synchronized.
             <section id="main">
                 <ul id="todo-list">
                 {{#each todo in model itemController="todo"}}
-                {{!--
-
-                Ember.js has created a controller for us and set the controller's model property to our route's model.  The template loops over the controller's model property. Because we don't need custom behavior for this
-                controller yet, we can use the default object provided by the framework.
-
-                 --}}
-                    <li {{bind-attr class="todo.isCompleted:completed"}}>
+                    <li {{bind-attr class="todo.isCompleted:completed todo.isEditing:editing"}}>
+                    {{#if todo.isEditing}}
+                        {{edit-todo class="edit" value=todo.title focus-out="acceptChanges" insert-newline="acceptChanges"}}
+                    {{else}}
                         {{input type="checkbox" checked=todo.isCompleted class="toggle"}}
-                        <label>{{todo.title}}</label><button class="destroy"></button>
+                        <label {{action "editTodo" on="doubleClick"}}>{{todo.title}}</label><button class="destroy"></button>
+                    {{/if}}
                     </li>
                 {{/each}}
                 </ul>
@@ -70,6 +62,7 @@ changes, the other will automatically update to remain synchronized.
     <script src="js/models/todo.js"></script>
     <script src="js/controllers/todos_controller.js"></script>
     <script src="js/controllers/todo_controller.js"></script>
+    <script src="js/views/edit_todo_view.js"></script>
 
 </body>
 </html>
